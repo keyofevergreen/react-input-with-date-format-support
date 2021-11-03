@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 
 const usePositions = (date) => {
-    const dataTime = /(?<day>\d{1,2})\/(?<month>\D{3,})\/(?<year>\d{4}) (?<hour>\d{2}):(?<minutes>\d{2}):(?<seconds>\d{2})/
+    const dataRegex = /(?<day>\d{1,2})\/(?<month>\D{3,})\/(?<year>\d{4}) (?<hour>\d{2}):(?<minutes>\d{2}):(?<seconds>\d{2})/
     const [positions, setPositions] = useState({});
     //Breaking a date into its constituent dates
     useEffect(() => {
-        if (dataTime.test(date)) {
+        if (dataRegex.test(date)) {
             //The first index is not needed because it is the whole string
-            const [, ...partsOfDate] = dataTime.exec(date);
+            const [, ...partsOfDate] = dataRegex.exec(date);
             let fromIndex = 0;
             let currentType = 'day'
             //Finding the intervals of the components of the date

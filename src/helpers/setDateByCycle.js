@@ -3,7 +3,7 @@ import setMonth from "./setMonth";
 import setYear from "./setYear";
 import setTime from "./setTime";
 
-const setDate = (currentPartOfDate, target, key) => {
+const setDateByCycle = (currentPartOfDate, target, key) => {
     switch (currentPartOfDate.type) {
         case 'day':
             return(key === 'ArrowUp' ? setDay(currentPartOfDate, target, true) : setDay(currentPartOfDate, target, false));
@@ -20,4 +20,4 @@ const setDate = (currentPartOfDate, target, key) => {
     }
 }
 
-export default setDate;
+export default setDateByCycle;
