@@ -30,12 +30,13 @@ const InputDate = () => {
                        })
                        if ('position' in currentPartOfDate && e.key === 'ArrowUp') {
                            e.preventDefault();
-                           const {type, value, position} = currentPartOfDate;
-                           const [start, end] = position;
-                           const nextValue = setDay(value);
-                           e.target.setSelectionRange(start, end);
-                           e.target.setRangeText(nextValue, start, end, 'select');
-                           setValue(e.target.value);
+                           // e.target.setSelectionRange(start, end);
+                           switch(currentPartOfDate.type) {
+                               case 'day':
+                                   setDay(currentPartOfDate, e.target, true);
+                                   setValue(e.target.value);
+
+                           }
 
                        }
                    }}

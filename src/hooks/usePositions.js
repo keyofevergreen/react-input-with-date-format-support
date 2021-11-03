@@ -19,7 +19,7 @@ const usePositions = (date) => {
                     switch (currentType) {
                         case 'day':
                             currentType = 'hours';
-                            return {type: 'day', value: datePart, position: [index, index + 2]}
+                            return {type: 'day', value: datePart, position: [index, index + 2], month: partsOfDate[1], year: partsOfDate[2]}
                         case 'hours':
                             currentType = 'minutes';
                             return {type: 'hours', value: datePart, position: [index, index + 2]}

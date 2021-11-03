@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 
 const useCurrentPosition = (entry, caretPosition) => {
     const [current, setCurrent] = useState({})
-    console.log(current);
     useEffect(() => {
         if(!entry.length) return;
         for (const position of entry) {
