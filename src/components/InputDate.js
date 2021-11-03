@@ -5,6 +5,9 @@ import useCurrentPosition from "../hooks/useCurrentPosition";
 import setDay from "../helpers/setDay";
 import usePositions from "../hooks/usePositions";
 import setMonth from "../helpers/setMonth";
+import setYear from "../helpers/setYear";
+import setTime from "../helpers/setTime";
+import setDate from "../helpers/setDate";
 
 const InputDate = () => {
     const [value, setValue] = useState('');
@@ -31,15 +34,8 @@ const InputDate = () => {
                        })
                        if (('position' in currentPartOfDate && e.key === 'ArrowUp') || ('position' in currentPartOfDate && e.key === 'ArrowDown')) {
                            e.preventDefault();
-                           const type = currentPartOfDate.type;
-                           if (type === 'day') {
-                               e.key === 'ArrowUp' ? setDay(currentPartOfDate, e.target, true) : setDay(currentPartOfDate, e.target, false);
-                               setValue(e.target.value);
-                           }
-                           if (type === 'month') {
-                               e.key === 'ArrowUp' ? setMonth(currentPartOfDate, e.target, true) : setMonth(currentPartOfDate, e.target, false);
-                               setValue(e.target.value);
-                           }
+                           setDate(currentPartOfDate, e.target, e.key);
+                           setValue(e.target.value);
                        }
                    }}
                    onClick={e => {
