@@ -1,16 +1,29 @@
-import getDaysInMonth from "./getDaysInMonth";
+import moment from "moment";
 
 const setDay = (currentPartOfDate, target, isAdd) => {
     const {value, position, month, year} = currentPartOfDate;
-    const days = getDaysInMonth(month, year);
+    const days = moment(`${month}/${year}`, 'MMMM/YYYY').daysInMonth();
     let newValue;
-    if(value < days) {
-        if(isAdd) {
-            newValue = value < 9 ? `0${Number(value) + 1}` : Number(value) + 1;
-        }
-    }
-    if(Number(value) === days && isAdd) {
-        newValue = '01';
+
+    switch(isAdd) {
+        case true:
+            if(value < days) {
+                newValue = value < 9 ? `0${Number(value) + 1}` : Number(value) + 1;
+            }
+            if(Number(value) === days) {
+                newValue = '01';
+            }
+            break;
+        case false:
+            if(value <= days) {
+                newValue = value <= 10 ? `0${Number(value) - 1}` : Number(value) - 1;
+            }
+            if(Number(value) === 1) {
+                newValue = days;
+            }
+            break;
+        default:
+            newValue = value;
     }
 
     const [start, end] = position

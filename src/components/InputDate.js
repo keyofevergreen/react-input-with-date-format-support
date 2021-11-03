@@ -28,14 +28,12 @@ const InputDate = () => {
                                setCaretPosition(e.target.selectionStart);
                            }
                        })
-                       if ('position' in currentPartOfDate && e.key === 'ArrowUp') {
+                       if (('position' in currentPartOfDate && e.key === 'ArrowUp') || ('position' in currentPartOfDate && e.key === 'ArrowDown')) {
                            e.preventDefault();
-                           // e.target.setSelectionRange(start, end);
-                           switch(currentPartOfDate.type) {
+                           switch (currentPartOfDate.type) {
                                case 'day':
-                                   setDay(currentPartOfDate, e.target, true);
+                                   e.key === 'ArrowUp' ? setDay(currentPartOfDate, e.target, true) : setDay(currentPartOfDate, e.target, false);
                                    setValue(e.target.value);
-
                            }
 
                        }
