@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import '../styles/InputDate.css'
 import moment from "moment";
 import useCurrentPosition from "../hooks/useCurrentPosition";
 import setDay from "../helpers/setDay";
 import usePositions from "../hooks/usePositions";
+import setMonth from "../helpers/setMonth";
 
 const InputDate = () => {
     const [value, setValue] = useState('');
@@ -30,12 +31,15 @@ const InputDate = () => {
                        })
                        if (('position' in currentPartOfDate && e.key === 'ArrowUp') || ('position' in currentPartOfDate && e.key === 'ArrowDown')) {
                            e.preventDefault();
-                           switch (currentPartOfDate.type) {
-                               case 'day':
-                                   e.key === 'ArrowUp' ? setDay(currentPartOfDate, e.target, true) : setDay(currentPartOfDate, e.target, false);
-                                   setValue(e.target.value);
+                           const type = currentPartOfDate.type;
+                           if (type === 'day') {
+                               e.key === 'ArrowUp' ? setDay(currentPartOfDate, e.target, true) : setDay(currentPartOfDate, e.target, false);
+                               setValue(e.target.value);
                            }
-
+                           if (type === 'month') {
+                               e.key === 'ArrowUp' ? setMonth(currentPartOfDate, e.target, true) : setMonth(currentPartOfDate, e.target, false);
+                               setValue(e.target.value);
+                           }
                        }
                    }}
                    onClick={e => {
@@ -51,14 +55,3 @@ const InputDate = () => {
     );
 };
 export default InputDate;
-
-
-// const getCaretIndex = (target) => {
-//     const startPos = target.selectionStart;
-//     const endPos = target.selectionEnd;
-//     const dir = target.selectionDirection;
-//     console.log(dir);
-//     if (startPos === endPos) {
-//         return startPos;
-//     }
-// }
