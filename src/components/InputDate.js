@@ -2,11 +2,7 @@ import React, {useState} from 'react';
 import '../styles/InputDate.css'
 import moment from "moment";
 import useCurrentPosition from "../hooks/useCurrentPosition";
-import setDay from "../helpers/setDay";
 import usePositions from "../hooks/usePositions";
-import setMonth from "../helpers/setMonth";
-import setYear from "../helpers/setYear";
-import setTime from "../helpers/setTime";
 import setDate from "../helpers/setDate";
 
 const InputDate = () => {
@@ -17,8 +13,8 @@ const InputDate = () => {
 
     return (
         <div className='container'>
-            <label htmlFor="date">Enter a date and time:</label>
-            <input id="date" type='text' value={value}
+            <label class="text-field__label" htmlFor="date">Enter a date and time:</label>
+            <input class="text-field__input" id="date" type='text' placeholder="Press 'Enter' to convert date" value={value}
                    onChange={e => {
                        setValue(e.target.value)
                    }}
@@ -36,6 +32,9 @@ const InputDate = () => {
                            e.preventDefault();
                            setDate(currentPartOfDate, e.target, e.key);
                            setValue(e.target.value);
+                       }
+                       if(('position' in currentPartOfDate && e.key === 'ArrowUp' && e.ctrlKey) || ('position' in currentPartOfDate && e.key === 'ArrowDown' && e.ctrlKey)) {
+
                        }
                    }}
                    onClick={e => {

@@ -1,5 +1,3 @@
-import moment from "moment";
-
 const setYear = (currentPartOfDate, target, isAdd) => {
     const {value, position} = currentPartOfDate;
     let newYear;
