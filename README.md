@@ -22,7 +22,7 @@ git clone https://github.com/keyofevergreen/react-input-with-date-format-support
 ```
 2. Go to the cloned directory.
 3. Run `npm install`.
-4. Run `npm start`. The command will start a local live server. Open (http://localhost:3000/SimpleWeather) in your browser, if the tab doesn't open automatically.
+4. Run `npm start`. The command will start a local live server. Open (http://localhost:3000/) in your browser, if the tab doesn't open automatically.
 
 ### How to use
 
