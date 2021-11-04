@@ -11,6 +11,7 @@ const InputDate = () => {
     const dateRegex = /(?<day>\d{1,2})\/(?<month>\D{3,})\/(?<year>\d{4}) (?<hour>\d{2}):(?<minutes>\d{2}):(?<seconds>\d{2})/
     //Get a data object about the current date position if the caret is in it
     const currentPosition = useCurrentPosition(value, caretPosition, dateRegex);
+    console.log(currentPosition);
 
     const ref = React.useRef();
     const input = ref.current;

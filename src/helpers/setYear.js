@@ -1,5 +1,6 @@
 const setYear = (currentPartOfDate, target, isAdd) => {
     const {value, position} = currentPartOfDate;
+    console.log(value)
     let newYear;
 
     if (isAdd) {

@@ -13,7 +13,7 @@ const setDateByCycle = (currentPartOfDate, target, key) => {
     if(type === 'months') {
         return setMonth(currentPartOfDate, target, isAdd);
     }
-    if(type === 'year') {
+    if(type === 'years') {
         return setYear(currentPartOfDate, target, isAdd)
     } else {
         return setTime(currentPartOfDate, target, isAdd)
