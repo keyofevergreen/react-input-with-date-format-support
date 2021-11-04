@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/InputDate.css'
 import moment from "moment";
-import getCurrentPosition from "../helpers/getCurrentPosition";
 import useCurrentPosition from "../hooks/useCurrentPosition";
 import setDateByCycle from "../helpers/setDateByCycle";
 import setDateNotByCycle from "../helpers/setDateNotByCycle";
@@ -9,9 +8,9 @@ import setDateNotByCycle from "../helpers/setDateNotByCycle";
 const InputDate = () => {
     const [value, setValue] = useState('');
     const [caretPosition, setCaretPosition] = useState(0);
+    const dateRegex = /(?<day>\d{1,2})\/(?<month>\D{3,})\/(?<year>\d{4}) (?<hour>\d{2}):(?<minutes>\d{2}):(?<seconds>\d{2})/
     //Get a data object about the current date position if the caret is in it
-    const currentPosition = useCurrentPosition(value, caretPosition);
-    const dataRegex = /(?<day>\d{1,2})\/(?<month>\D{3,})\/(?<year>\d{4}) (?<hour>\d{2}):(?<minutes>\d{2}):(?<seconds>\d{2})/
+    const currentPosition = useCurrentPosition(value, caretPosition, dateRegex);
 
     const ref = React.useRef();
     const input = ref.current;
@@ -38,7 +37,7 @@ const InputDate = () => {
 
     return (
         <div className='container'>
-            <label className="text-field__label" htmlFor="date">Enter a date and time:</label>
+            <label className='text-field__label' htmlFor="date">Enter a date and time:</label>
             <input className="text-field__input" id="date" type='text' placeholder="Press 'Enter' to convert date"
                    ref={ref}
                    value={value}
@@ -53,12 +52,12 @@ const InputDate = () => {
                            setConvertDate();
                        }
 
-                       if ((e.key === 'ArrowUp' && !e.ctrlKey && dataRegex.test(value)) || (e.key === 'ArrowDown' && !e.ctrlKey && dataRegex.test(value))) {
+                       if ((e.key === 'ArrowUp' && !e.ctrlKey && dateRegex.test(value)) || (e.key === 'ArrowDown' && !e.ctrlKey && dateRegex.test(value))) {
                            e.preventDefault();
                            setDateByCycle(currentPosition, e.target, e.key);
                            setValue(e.target.value);
                        }
-                       if ((e.key === 'ArrowUp' && e.ctrlKey && dataRegex.test(value)) || (e.key === 'ArrowDown' && e.ctrlKey && dataRegex.test(value))) {
+                       if ((e.key === 'ArrowUp' && e.ctrlKey && dateRegex.test(value)) || (e.key === 'ArrowDown' && e.ctrlKey && dateRegex.test(value))) {
                            e.preventDefault();
                            const caret = e.target.selectionStart;
                            const element = e.target;

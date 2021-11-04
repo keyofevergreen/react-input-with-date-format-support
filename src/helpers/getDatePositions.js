@@ -1,16 +1,16 @@
 const getDatePositions = (date, parsedDate) => {
     let fromIndex = 0;
-    let currentType = 'day'
+    let currentType = 'days'
     const positions = parsedDate.map((datePosition) => {
         const index = date.indexOf(datePosition, fromIndex);
         if (datePosition.length === 2) {
             fromIndex = index + 2;
 
             switch (currentType) {
-                case 'day':
+                case 'days':
                     currentType = 'hours';
                     return {
-                        type: 'day',
+                        type: 'days',
                         value: datePosition,
                         position: [index, index + 2],
                         month: parsedDate[1],
@@ -29,11 +29,11 @@ const getDatePositions = (date, parsedDate) => {
             }
         }
         if (isNaN(datePosition)) {
-            return {type: 'month', value: datePosition, position: [index, index + datePosition.length]}
+            return {type: 'months', value: datePosition, position: [index, index + datePosition.length]}
         }
         fromIndex = index + 4;
         // Year
-        return {type: 'year', value: datePosition, position: [index, index + 4]}
+        return {type: 'years', value: datePosition, position: [index, index + 4]}
     })
     return positions;
 }
