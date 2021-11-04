@@ -1,3 +1,4 @@
+![Header](https://github.com/keyofevergreen/react-input-with-date-format-support/blob/master/public/assets/input.gif)
 # 🔎Input with date format support
 Recently I’ve received a test task where I needed to implement a text input with the ability to convert a valid text to a date and then work with it.
 
