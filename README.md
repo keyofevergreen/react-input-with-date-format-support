@@ -3,8 +3,11 @@ Recently I’ve received a test task where I needed to implement a text input wi
 
 I searched all over the internet but didn't find a similar solution, so I'll post it for others just in case. Could be useful for someone :)
 
-The algorithm is as follows:\
-Find out the position of the cursor -> If the input is a valid date form, then -> if the cursor is in the form area (day, month, year, etc.), then -> Select this form area and change
+The algorithm is as follows:
+1. Find out the position of the cursor\
+2. If the input is a valid date form, then\
+3. if the cursor is in the form area (day, month, year, etc.), then\
+4. Select this form area and change
 
 There are two ways in my solution to change the date:
 1) Cyclically.
