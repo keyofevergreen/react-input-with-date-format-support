@@ -1,12 +1,13 @@
+![Header](https://github.com/keyofevergreen/react-input-with-date-format-support/blob/master/public/assets/input.gif)
 # 🔎Input with date format support
 Recently I’ve received a test task where I needed to implement a text input with the ability to convert a valid text to a date and then work with it.
 
 I searched all over the internet but didn't find a similar solution, so I'll post it for others just in case. Could be useful for someone :)
 
 ### 💡The algorithm is as follows:
-1. Find out the position of the cursor.
+1. Find out the position of the caret.
 2. If the input is a valid date form, then
-3. if the cursor is in the form area (day, month, year, etc.), then
+3. if the caret is in the form area (day, month, year, etc.), then
 4. Select this form area and change.
 
 ### There are two ways in my solution to change the date:
@@ -27,5 +28,5 @@ git clone https://github.com/keyofevergreen/react-input-with-date-format-support
 ### ⌨How to use
 
 `Press Enter` if you want to convert the text to date format (if valid).\
-`Press ↑ or ↓` to change the date cyclically in the cursor area.\
-`Press ctrl + ↑ or ctrl + ↓` to change the date non-cyclically in the cursor area.
+`Press ↑ or ↓` to change the date cyclically in the caret area.\
+`Press ctrl + ↑ or ctrl + ↓` to change the date non-cyclically in the caret area.
