@@ -19,11 +19,11 @@ const setTime = (currentPartOfDate, target, isAdd) => {
             }
         }
     } else {
-        if(type === 'hours') {
-            if(value <= 24) {
+        if (type === 'hours') {
+            if (value <= 24) {
                 newTime = value <= 10 ? `0${Number(value) - 1}` : Number(value) - 1;
             }
-            if(value === '00') {
+            if (value === '00') {
                 newTime = '23';
             }
         } else {

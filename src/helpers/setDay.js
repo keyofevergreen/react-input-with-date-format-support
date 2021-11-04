@@ -6,7 +6,7 @@ const setDay = (currentPartOfDate, target, isAdd) => {
     let newDay;
 
     if (isAdd) {
-        if(value > days) {
+        if (value > days) {
             newDay = '01';
         }
         if (value < days) {
@@ -16,7 +16,7 @@ const setDay = (currentPartOfDate, target, isAdd) => {
             newDay = '01';
         }
     } else {
-        if(value > days) {
+        if (value > days) {
             newDay = days - 1;
         }
         if (value <= days) {

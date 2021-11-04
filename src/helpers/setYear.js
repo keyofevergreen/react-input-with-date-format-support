@@ -2,11 +2,11 @@ const setYear = (currentPartOfDate, target, isAdd) => {
     const {value, position} = currentPartOfDate;
     let newYear;
 
-    if(isAdd) {
+    if (isAdd) {
         newYear = Number(value) + 1;
     } else {
         newYear = Number(value) - 1;
-        if(value <= 1900) {
+        if (value <= 1900) {
             newYear = 1900;
         }
     }
