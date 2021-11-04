@@ -15,7 +15,7 @@ Rotate the date within the selection area (Example: December 31, 2021 -> Decembe
 2. Non-cyclical.
 Rotate the date within the whole date (For example: December 31, 2021 -> January 1, 2022).
 
-### how to install
+### How to install
 1. Clone this repository.
 ```
 git clone https://github.com/keyofevergreen/react-input-with-date-format-support.git
